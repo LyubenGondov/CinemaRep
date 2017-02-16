@@ -1,0 +1,72 @@
+﻿@model CinemaSite.Models.Ticket
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+    body {
+        background-color: #87cefa;
+    }
+</style>
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ticket</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Movies.MovieName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Movies.MovieName)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MovieName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MovieName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsPromotional)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsPromotional)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceInTheHall)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceInTheHall)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Row)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Row)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Halls)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Halls)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
