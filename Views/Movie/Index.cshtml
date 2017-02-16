@@ -1,0 +1,82 @@
+﻿@using System.Diagnostics.Eventing.Reader
+@model IEnumerable<MovieApplication.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Movies</h2>
+
+<style>
+    .center {
+        text-align: center;
+        color: #000000;
+    }
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 70%;
+        position: relative;
+        left: 150px;
+    }
+
+    body {
+        background-color: #87cefa;
+    }
+
+    td, th {
+        border: 1px solid #000000;
+        text-align: center;
+        padding: 15px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #00bfff;
+    }
+</style>
+
+<h2 class="center"> These are all availables movie </h2>
+
+
+<body>
+<div>
+    <br />
+    <br />
+    @if (Model.Count() == 0)
+    {
+        <h4>There's no movies added.To add movies, plese click <a href="@Url.Action("AddMovie","Movie")"> here</a></h4>
+    }
+    else
+    {
+        <table>
+            <tr>
+                <th>Movie Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Ganre</th>
+                <th>Is under 18</th>
+                <th>Rating</th>
+                <th>Delete Movies</th>
+                <th>Edit Movies</th>
+            </tr>
+
+            @foreach (var item in Model)
+            { 
+                <tr>
+                    <td>@item.MovieName</td>
+                    <td>@item.StartDate</td>
+                    <td>@item.EndDate</td>
+                    <td>@item.Ganre</td>
+                    <td>@item.IsMature</td>
+                    <td>@item.Rating</td>
+                    <td>@Html.ActionLink("Delete", "Delete", new {id = item.Id})</td>
+                    <td>@Html.ActionLink("Edit", "Edit", new { id = item.Id })</td>
+                </tr>
+            }
+        </table>
+
+    }
+
+</div>
+</body>
+
